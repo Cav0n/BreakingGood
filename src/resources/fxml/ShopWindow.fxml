@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<SplitPane dividerPositions="0.3" xmlns:fx="http://javafx.com/fxml" fx:controller="view.ShopWindow" prefHeight="400.0" prefWidth="600.0">
+    <fx:define>
+        <Integer fx:id="moins1" fx:value="-1" />
+    </fx:define>
+    <items>
+        <ListView fx:id="listeDesBonus" items="${controller.leModele.lesBonus}" />
+        <BorderPane>
+            <center>
+                <Label fx:id="detailBonus" disable="${listeDesBonus.selectionModel.selectedIndex == moins1}" wrapText="true" BorderPane.alignment="CENTER" />
+            </center>
+         <top>
+            <Label fx:id="titreNote" disable="${listeDesBonus.selectionModel.selectedIndex == moins1}" BorderPane.alignment="CENTER" />
+         </top>
+         <bottom>
+             <Label fx:id="prix" disable="${listeDesBonus.selectionModel.selectedIndex == moins1}"  BorderPane.alignment="CENTER" />
+         </bottom>
+        </BorderPane>
+        <Button onAction="#onAchat" contentDisplay ="CENTER" text="Achat"/>
+        <Button onAction="#onRetour" contentDisplay="CENTER" text="Retour" />
+    </items>
+</SplitPane>
